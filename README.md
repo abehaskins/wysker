@@ -1,6 +1,6 @@
 Wysker Editor
 =============
-Wysker is an extremely light (~10k)  "what you see is what you get" HTML editor that is designed to be used in-browser allowing the site to be edited and tested in real time. 
+Wysker is an extremely light (~10k) "What You See Is What You Get (WYSIWYG)" or as I like to refer to them "What You See Kind of Equals Results (WYSKER)" HTML editor that is designed to be used in-browser allowing the site to be edited and tested in real time. 
 
 Wysker is written in javascript. Its only dependency is jQuery 1.7.
 
