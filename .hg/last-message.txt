@@ -1,2 +1,0 @@
-Made new data passed to save_func
-
