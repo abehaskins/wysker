@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>
+Wysker Demo
+</title>
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script> <!-- Jquery -->
+<script language="javascript" src="wysker.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function() { 
+	wysker_init(
+		function (id) {
+			console.debug('Saved ' + id + '!')		
+		}
+	)
+});
+</script>
+
+</head>
+
+<body>
+<div wysker-id="section1" style="float: left;">
+Hello <b>pimp</b> faces
+</div>
+<br /><br />
+<div wysker-id="section1" style="float: left;">
+Hello Whats up in this hizzy
+</div>
+<br /><br />
+<div wysker-id="section1" style="float: left;">
+Meow meow meow
+</div>
+</body>
+
+</html>
