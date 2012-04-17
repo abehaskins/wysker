@@ -14,6 +14,7 @@ wysker_init = function (save_func, cancel_func, color_mode) {
 	wlb = '#wysker_lightbox'
 	wdb = '#wysker_darkbox'
 	wpa = '#wysker_padding'
+	wln = '#wysker_line_numbers'
 	ch_we = false // The currently hovered Wysker Element
 	c_we = false // The currently selected Wysker Element
 	c_we_rb = false
@@ -23,7 +24,7 @@ wysker_init = function (save_func, cancel_func, color_mode) {
 
 	// CSS Rules for stuff
 	wysker_hover_css = {
-		'width': '100px',
+		'width': '100px',	
 		'height': '100px',
 		'position': 'absolute',
 		'left': '0px',
@@ -31,7 +32,7 @@ wysker_init = function (save_func, cancel_func, color_mode) {
 		'border': '1px solid ' + (( color_mode == 'light' ) ? '#fff' : '#333'),
 		'border-radius': '0px 4px 4px 4px',
 		'cursor': 'pointer',
-		'z-index': '10000',
+		'z-index': '10000'
 	}
 
 	wysker_hover_title_css = {
@@ -60,7 +61,7 @@ wysker_init = function (save_func, cancel_func, color_mode) {
 		'font-size': '12px',
 		'border-top': '1px solid white',
 		'box-shadow':  '0 0 1px 1px #888',
-		'z-index': '10000',
+		'z-index': '10000'
 	}
 
 	wysker_textarea_css = {
@@ -86,7 +87,12 @@ wysker_init = function (save_func, cancel_func, color_mode) {
 		'border': '1px solid #333',
 		'color': 'white',
 		'text-align': 'center',
-		'padding-top': '5px'
+		'padding-top': '5px',
+		'overflow': 'hidden'
+	}
+
+	wysker_line_number_css = {
+		'position': 'relative'
 	}
 
 	wysker_button_css = {
@@ -312,6 +318,11 @@ wysker_init = function (save_func, cancel_func, color_mode) {
 		save()
 		hide_edit()
 	})
+
+	$(wta).scroll(function (e) {
+		$(wln).css('top', -e.target.scrollTop)
+	})
+
 	}
 	// A bunch of local methods, they are local to the function to prevent overlap with site code
 
@@ -374,21 +385,24 @@ wysker_init = function (save_func, cancel_func, color_mode) {
 	// Render linecount for textarea
 	function render_lc(width) {
 		$(wlc).html('')
+		$(wlc).append( $('<div>', {id: 'wysker_line_numbers'}) )
+		apply_css(wysker_line_number_css, wln)
 		lines = $(wta).val().split('\n')
 		for (i=1; i<=lines.length; i++) {
-			$(wlc).append(i + '<br />')	
+			$(wln).append(i + '<br />')	
 			extra_lines = parseInt(lines[i-1].length/(width/8))
 			//console.debug(extra_lines)
 			for (p=0; p<extra_lines; p++) {
-				$(wlc).append('<br />')
+				$(wln).append('<br />')
 			}
 			words = lines[i-1].split(' ')
 			for (w=0; w<words.length; w++) {
 				if (words[w].length/(width/8) > 1) {
-					$(wlc).append('<br />')
+					$(wln).append('<br />')
 				}
 			}
 		}
+		$(wln).css('top', -$(wta)[0].scrollTop)
 	}
 
 	// Render dialog
