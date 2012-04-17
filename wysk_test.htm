@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>
+Wysker Demo
+</title>
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script> <!-- Jquery -->
+<script language="javascript" src="https://raw.github.com/abeisgreat/wysker/master/wysker.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function() { 
+	wysker_init(
+		function (id) {
+			console.debug('Saved ' + id + '!')		
+		}
+	)
+});
+</script>
+
+</head>
+
+<body>
+<div wysker-id="section1" style="float: left;">
+Hover your mouse over this text
+</div>
+<br /><br />
+<div wysker-id="section1" style="float: left;">
+This is another example
+</div>
+<br /><br />
+<div wysker-id="section1" style="float: left;">
+This is an example with a child element and with <b>bold</b> text
+<div style="width: 200px; height: 200px; background-color: red;"></div>
+</div>
+</body>
+
+</html>
