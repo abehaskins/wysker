@@ -10,7 +10,7 @@ Usage
 -----
 In order to implement Wysker on your site you need to have some code like this.
 
-'''
+```
 	<script language="javascript" src="wysker.js"></script>
 	<script type="text/javascript">
 	$(document).ready(function() { 
@@ -21,7 +21,7 @@ In order to implement Wysker on your site you need to have some code like this.
 		)
 	});
 	</script>
-'''
+```
 
 Any editable elements on the page should have a "wysker-id" attribute. The ID and the content of the edited element will be passed to the save function.
 
