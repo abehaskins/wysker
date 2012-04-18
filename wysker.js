@@ -1,5 +1,3 @@
-// Do you guys remember The Cramps? They had like one good song
-// Make scrolling on the text area work
 wysker_init = function (save_func, cancel_func, color_mode) {
 	// We define the main code as a function and run it later so we don't have to put all our functions before the main logic
 	function run() {
@@ -324,10 +322,8 @@ wysker_init = function (save_func, cancel_func, color_mode) {
 	})
 
 	}
+
 	// A bunch of local methods, they are local to the function to prevent overlap with site code
-
-	// Takes an obj with CSS properties and applies them to an element
-
 	function save() {
 		c_we_rb = $(wta).val()
 		if (save_func) {
